@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://claudiayee.github.io/Haoxuan-Duan.github.io/sitemap.xml
