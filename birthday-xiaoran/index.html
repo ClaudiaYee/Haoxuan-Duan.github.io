@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f6b8c8" />
+  <meta name="description" content="给小然的一封生日手写信" />
+  <title>给小然的生日贺卡</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23f7c1ce'/%3E%3Cpath d='M32 50S12 38 12 24c0-10 13-14 20-4 7-10 20-6 20 4 0 14-20 26-20 26Z' fill='%23fff8f1'/%3E%3C/svg%3E" />
+  <style>
+    :root{--ink:#493a42;--pink:#d86f8c;--paper:#fffaf3;--accent:#9f405e;--shadow:rgba(92,48,62,.18)}
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;overflow-x:hidden}
+    body{min-height:100vh;color:var(--ink);font-family:"Kaiti SC","STKaiti","KaiTi","Songti SC",serif;background:radial-gradient(circle at 18% 14%,#fff8cf 0 5%,transparent 16%),radial-gradient(circle at 86% 78%,#ffd7df 0 8%,transparent 25%),linear-gradient(145deg,#f9dce6,#f9edd2 53%,#dfead6);display:grid;place-items:center;padding:26px 14px}
+    body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.27;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E")}
+    .stage{width:min(92vw,760px);perspective:1800px;position:relative}
+    .book{position:relative;height:min(78vh,760px);min-height:610px}
+    .page{position:absolute;inset:0;background:var(--paper);border:1px solid rgba(150,89,105,.18);border-radius:5px 18px 18px 5px;box-shadow:0 25px 65px var(--shadow),inset 28px 0 40px rgba(129,81,91,.05);padding:clamp(31px,5vw,62px) clamp(27px,7vw,76px);overflow:auto;transform-origin:left center;transition:transform .82s cubic-bezier(.2,.7,.2,1),opacity .25s,z-index 0s .4s;backface-visibility:hidden;scrollbar-width:thin;scrollbar-color:#ecc1cc transparent}
+    .page::after{content:"";position:absolute;inset:16px;border:1px solid rgba(218,139,160,.28);border-radius:3px 12px 12px 3px;pointer-events:none}
+    .page.flipped{transform:rotateY(-178deg);opacity:.3}
+    .page h1{font-size:clamp(1.5rem,3.5vw,2.05rem);font-weight:500;margin:0 0 1.25rem;color:var(--accent);letter-spacing:.05em}
+    .page p{font-size:clamp(1rem,2.1vw,1.18rem);line-height:1.95;margin:.72rem 0;letter-spacing:.045em;white-space:pre-line}
+    .page .lead{font-size:clamp(1.12rem,2.4vw,1.3rem);color:#7f3d54}
+    .quote{margin:1.35rem 0;padding:1rem 1.1rem;border-left:3px solid #e69eb2;background:rgba(253,224,231,.35);font-size:1.13em;line-height:1.8}
+    .sign{text-align:right;margin-top:1.7rem!important;color:#8f5265}
+    .flourish{text-align:center;font-size:1.6rem;letter-spacing:.35rem;color:#d47c95;margin:1.4rem 0}
+    .final{display:grid;place-content:center;text-align:center;background:linear-gradient(rgba(255,250,243,.9),rgba(255,250,243,.96)),radial-gradient(circle,#f2a9bd 1.5px,transparent 2px);background-size:auto,28px 28px}
+    .final h1{font-size:clamp(2rem,6vw,3.8rem);line-height:1.5;margin-bottom:1rem}
+    .final p{font-size:clamp(1.15rem,3vw,1.5rem);line-height:2}
+    .controls{display:flex;justify-content:center;align-items:center;gap:18px;margin-top:19px}
+    button{font:inherit;font-size:1rem;border:1px solid rgba(148,67,91,.28);background:rgba(255,250,245,.8);color:#86415a;border-radius:999px;padding:10px 20px;cursor:pointer;box-shadow:0 7px 18px rgba(115,56,74,.09);transition:.2s}
+    button:hover:not(:disabled){transform:translateY(-2px);background:#fff}
+    button:focus-visible{outline:3px solid rgba(189,89,120,.35);outline-offset:3px}
+    button:disabled{opacity:.35;cursor:default}
+    .dots{display:flex;gap:8px}.dot{width:8px;height:8px;border-radius:50%;background:#d8aeba;transition:.25s}.dot.active{width:23px;border-radius:8px;background:#bc5f7a}
+    .hint{text-align:center;margin-top:10px;color:#885f6c;font-size:.82rem;opacity:.8}
+    @media(max-width:600px){body{padding:14px 9px}.book{height:79vh;min-height:570px}.page{padding:38px 28px}.page::after{inset:10px}.page p{line-height:1.78}.controls{margin-top:13px}}
+    @media(prefers-reduced-motion:reduce){.page,button,.dot{transition:none}}
+  </style>
+</head>
+<body>
+  <main class="stage" aria-label="给小然的生日贺卡">
+    <section class="book" id="book">
+      <article class="page" aria-label="第一页，给小然" style="z-index:3">
+        <h1>To 亲爱的好朋友小然 🌷</h1>
+        <p class="lead">新的一岁，请继续尽兴。</p>
+        <p>🚗 这一岁，不赶路，去感受路。
+🎈 祝你拥有很多很多，不需要理由的快乐。
+🕯️ 愿你永远有吹蜡烛时，相信愿望会实现的认真。
+🎀 生日不是提醒你又长大了，是提醒你：你来到这个世界，值得庆祝。
+🌼 愿新的一岁，比去年更自由，比昨天更喜欢自己。</p>
+        <div class="quote">如果只能留下一句，<br>我还是最喜欢：<br>「新的一岁，请继续尽兴。」</div>
+        <p>去吃喜欢的蛋糕，
+去买没有理由也想买的花，
+去想去很久的地方，
+大笑的时候不用管漂不漂亮，
+偶尔绕一点路，也没有关系。</p>
+        <p>希望我们不是又匆匆忙忙地长大一岁，
+而是真的去喜欢、感受、庆祝这一岁。</p>
+        <p class="sign">生日快乐呀。🎂</p>
+      </article>
+      <article class="page" aria-label="第二页，给王女士" style="z-index:2">
+        <h1>To 亲爱的王女士 🌹</h1>
+        <p>今天是小然的生日，也想把一份祝福送给您。</p>
+        <p>谢谢您把这样温暖、真诚又可爱的她带到这个世界，也谢谢您用许多年的爱与耐心，陪她慢慢长成如今闪闪发光的模样。</p>
+        <p>作为她的朋友，我很幸运能分享她的快乐，也很安心地知道，无论她走多远，身后始终有您留着一盏温柔的灯。</p>
+        <p>愿您今后的日子少些操心，多些自在；有人惦念，有人陪伴，所盼皆有回应。也愿岁月格外偏爱您，让健康与好心情常伴左右。</p>
+        <p>祝您和家人平安顺遂，生活常有小惊喜。我们也会陪着小然，一起认真生活，一起把每一个普通的日子过得热气腾腾。</p>
+        <div class="flourish">🌷 · 🌷 · 🌷</div>
+        <p class="sign">也祝王女士，每一天都幸福快乐。</p>
+      </article>
+      <article class="page final" aria-label="第三页，一起奔赴未来" style="z-index:1">
+        <div>
+          <div class="flourish">✦ 🌼 ✦</div>
+          <h1>大家一起<br>奔赴美好的未来</h1>
+          <p>愿我们一路有花、有光、有彼此，<br>带着热爱，奔向每一个明亮的明天。</p>
+          <p>生日快乐，小然。🎂</p>
+        </div>
+      </article>
+    </section>
+    <nav class="controls" aria-label="贺卡翻页控制">
+      <button id="prev" type="button" aria-label="翻到上一页">← 上一页</button>
+      <div class="dots" aria-label="页码"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+      <button id="next" type="button" aria-label="翻到下一页">下一页 →</button>
+    </nav>
+    <div class="hint">也可以左右滑动或使用键盘方向键翻页</div>
+  </main>
+  <script>
+    const pages=[...document.querySelectorAll('.page')],dots=[...document.querySelectorAll('.dot')],prev=document.querySelector('#prev'),next=document.querySelector('#next');let current=0,startX=0;
+    function render(){pages.forEach((p,i)=>{p.classList.toggle('flipped',i<current);p.style.zIndex=i<current?i+1:pages.length-i});dots.forEach((d,i)=>d.classList.toggle('active',i===current));prev.disabled=current===0;next.disabled=current===pages.length-1;next.textContent=current===pages.length-1?'已经读完 ♡':'下一页 →'}
+    function go(n){current=Math.max(0,Math.min(pages.length-1,n));render()}
+    prev.addEventListener('click',()=>go(current-1));next.addEventListener('click',()=>go(current+1));
+    addEventListener('keydown',e=>{if(e.key==='ArrowLeft')go(current-1);if(e.key==='ArrowRight')go(current+1)});
+    document.querySelector('#book').addEventListener('touchstart',e=>startX=e.changedTouches[0].clientX,{passive:true});
+    document.querySelector('#book').addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-startX;if(Math.abs(dx)>50)go(current+(dx<0?1:-1))},{passive:true});render();
+  </script>
+</body>
+</html>
