@@ -25,23 +25,26 @@
 .moon-btn{box-shadow:-15px 2px 0 1px rgba(255,250,241,.82),0 0 25px rgba(255,213,88,.82)}
 </style>
 <style>
-.mother-page:after{content:"";position:absolute;z-index:2;inset:0;background:linear-gradient(to bottom,rgba(7,15,42,.12),rgba(2,7,25,.88));opacity:0;pointer-events:none;transition:opacity 3.2s ease}
-.mother-page.nightfall:after{opacity:1}
+.mother-page:after{content:"";position:absolute;z-index:2;inset:0;background:radial-gradient(circle at 50% 82%,rgba(208,103,91,.28),transparent 43%),linear-gradient(to bottom,rgba(63,61,113,.24),rgba(30,29,78,.64) 52%,rgba(2,7,25,.94));opacity:0;pointer-events:none;backdrop-filter:brightness(1) saturate(1);-webkit-backdrop-filter:brightness(1) saturate(1)}
+.mother-page.nightfall:after{animation:sunsetToNight 5.2s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes sunsetToNight{0%{opacity:0;backdrop-filter:brightness(1) saturate(1);-webkit-backdrop-filter:brightness(1) saturate(1)}38%{opacity:.38;backdrop-filter:brightness(.84) saturate(.9);-webkit-backdrop-filter:brightness(.84) saturate(.9)}72%{opacity:.73;backdrop-filter:brightness(.66) saturate(.78);-webkit-backdrop-filter:brightness(.66) saturate(.78)}100%{opacity:1;backdrop-filter:brightness(.5) saturate(.68);-webkit-backdrop-filter:brightness(.5) saturate(.68)}}
 .mother-page .mother-letter{z-index:3;transition:opacity 1.35s ease .35s,transform 1.8s ease .2s,filter 1.5s ease .25s}
 .mother-page.nightfall .mother-letter{opacity:0;transform:translateY(18px) scale(.97);filter:blur(4px)}
-.rising-moon{position:absolute;z-index:4;left:50%;bottom:-145px;width:112px;height:112px;border-radius:50%;opacity:0;pointer-events:none;background:radial-gradient(circle at 37% 31%,#fffde1 0 8%,#fff4ad 25%,#ffd86d 63%,#ffb94d 100%);box-shadow:0 0 20px #fff7bd,0 0 55px rgba(255,220,116,.82),0 0 110px rgba(255,192,88,.42);transform:translateX(-50%) scale(.65)}
+.rising-moon{position:absolute;z-index:4;left:50%;bottom:-145px;width:112px;height:112px;border-radius:50%;opacity:0;pointer-events:none;background:radial-gradient(circle at 37% 31%,#f6edcf 0 8%,#e8d79f 25%,#cdb875 63%,#aa8953 100%);box-shadow:0 0 14px rgba(241,226,174,.52),0 0 38px rgba(214,192,124,.32),0 0 74px rgba(157,135,87,.18);filter:brightness(.82) saturate(.74);transform:translateX(-50%) scale(.65)}
 .rising-moon:before,.rising-moon:after{content:"";position:absolute;border-radius:50%;background:rgba(218,177,86,.2)}
 .rising-moon:before{width:19px;height:19px;left:22px;top:30px;box-shadow:46px 18px 0 5px rgba(218,177,86,.14)}
 .rising-moon:after{width:12px;height:12px;left:48px;top:67px}
 .mother-page.nightfall .rising-moon{animation:moonRiseScene 3.25s cubic-bezier(.22,.72,.3,1) forwards}
-@keyframes moonRiseScene{0%{bottom:-145px;opacity:0;transform:translateX(-50%) scale(.65)}18%{opacity:1}72%{bottom:37vh;transform:translateX(-50%) scale(1.02)}100%{bottom:54vh;opacity:1;transform:translateX(-50%) scale(1.12)}}
+@keyframes moonRiseScene{0%{bottom:-145px;opacity:0;transform:translateX(-50%) scale(.65)}18%{opacity:.76}72%{bottom:37vh;opacity:.86;transform:translateX(-50%) scale(1.02)}100%{bottom:54vh;opacity:.8;transform:translateX(-50%) scale(1.12)}}
+.final-page{transition:opacity 2.7s cubic-bezier(.4,0,.2,1),visibility 2.7s,filter 3.1s ease;filter:brightness(.46) saturate(.62) sepia(.18) hue-rotate(-9deg)}
+.final-page.show{filter:brightness(1) saturate(1) sepia(0) hue-rotate(0)}
 .final-copy{max-height:94vh;overflow:auto;scrollbar-width:none}
 .final-copy::-webkit-scrollbar{display:none}
 .final-meme{display:block;width:min(72vw,340px);max-height:30vh;object-fit:cover;margin:18px auto 4px;border:3px solid rgba(255,255,255,.82);border-radius:18px;box-shadow:0 10px 35px rgba(0,0,0,.38),0 0 24px rgba(142,190,255,.28);opacity:0;transform:translateY(22px) scale(.82) rotate(-2deg)}
 .final-page.reveal-copy .final-meme{animation:memePop .9s cubic-bezier(.2,.9,.24,1.25) .45s forwards}
 @keyframes memePop{to{opacity:1;transform:none}}
 @media(max-width:600px){.rising-moon{width:92px;height:92px}.final-copy{padding:22px 16px}.final-copy h1{font-size:clamp(1.7rem,7vw,2.5rem)}.final-copy p{font-size:clamp(.98rem,3.8vw,1.2rem);line-height:1.65}.final-meme{width:min(74vw,300px);max-height:27vh;margin-top:12px}}
-@media(prefers-reduced-motion:reduce){.mother-page:after,.mother-page .mother-letter{transition-duration:.01ms}.mother-page.nightfall .rising-moon{animation-duration:.01ms}.final-page.reveal-copy .final-meme{animation-duration:.01ms}}
+@media(prefers-reduced-motion:reduce){.mother-page:after,.mother-page .mother-letter,.final-page{transition-duration:.01ms}.mother-page.nightfall:after,.mother-page.nightfall .rising-moon,.final-page.reveal-copy .final-meme{animation-duration:.01ms}}
 </style>
 <section class="story" id="story" aria-label="生日惊喜小故事">
   <div class="story-card" id="storyCard">
@@ -122,7 +125,7 @@ storySkip.addEventListener('click',openCard);boxHotspot.addEventListener('click'
 const nextStar=document.querySelector('#nextStar'),motherPage=document.querySelector('#motherPage'),moonBtn=document.querySelector('#moonBtn'),finalPage=document.querySelector('#finalPage'),starfield=document.querySelector('#starfield'),replayBtn=document.querySelector('#replayBtn');
 nextStar.addEventListener('click',()=>{motherPage.classList.add('show');document.body.style.overflow='hidden'});
 let moonTransitioning=false;
-moonBtn.addEventListener('click',()=>{if(moonTransitioning)return;moonTransitioning=true;moonBtn.disabled=true;motherPage.classList.add('nightfall');setTimeout(()=>{motherPage.classList.remove('show');finalPage.classList.add('show');startNight()},3250)});
+moonBtn.addEventListener('click',()=>{if(moonTransitioning)return;moonTransitioning=true;moonBtn.disabled=true;motherPage.classList.add('nightfall');setTimeout(()=>{finalPage.classList.add('show');startNight()},2500);setTimeout(()=>motherPage.classList.remove('show'),5300)});
 replayBtn.addEventListener('click',()=>location.reload());
 function startNight(){
   if(starfield.childElementCount)return;
