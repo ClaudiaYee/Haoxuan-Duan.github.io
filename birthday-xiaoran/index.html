@@ -1,98 +1,19 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#f6b8c8" />
-  <meta name="description" content="给小然的一封生日手写信" />
-  <title>给小然的生日贺卡</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23f7c1ce'/%3E%3Cpath d='M32 50S12 38 12 24c0-10 13-14 20-4 7-10 20-6 20 4 0 14-20 26-20 26Z' fill='%23fff8f1'/%3E%3C/svg%3E" />
-  <style>
-    :root{--ink:#493a42;--pink:#d86f8c;--paper:#fffaf3;--accent:#9f405e;--shadow:rgba(92,48,62,.18)}
-    *{box-sizing:border-box}
-    html,body{margin:0;min-height:100%;overflow-x:hidden}
-    body{min-height:100vh;color:var(--ink);font-family:"Kaiti SC","STKaiti","KaiTi","Songti SC",serif;background:radial-gradient(circle at 18% 14%,#fff8cf 0 5%,transparent 16%),radial-gradient(circle at 86% 78%,#ffd7df 0 8%,transparent 25%),linear-gradient(145deg,#f9dce6,#f9edd2 53%,#dfead6);display:grid;place-items:center;padding:26px 14px}
-    body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.27;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E")}
-    .stage{width:min(92vw,760px);perspective:1800px;position:relative}
-    .book{position:relative;height:min(78vh,760px);min-height:610px}
-    .page{position:absolute;inset:0;background:var(--paper);border:1px solid rgba(150,89,105,.18);border-radius:5px 18px 18px 5px;box-shadow:0 25px 65px var(--shadow),inset 28px 0 40px rgba(129,81,91,.05);padding:clamp(31px,5vw,62px) clamp(27px,7vw,76px);overflow:auto;transform-origin:left center;transition:transform .82s cubic-bezier(.2,.7,.2,1),opacity .25s,z-index 0s .4s;backface-visibility:hidden;scrollbar-width:thin;scrollbar-color:#ecc1cc transparent}
-    .page::after{content:"";position:absolute;inset:16px;border:1px solid rgba(218,139,160,.28);border-radius:3px 12px 12px 3px;pointer-events:none}
-    .page.flipped{transform:rotateY(-178deg);opacity:.3}
-    .page h1{font-size:clamp(1.5rem,3.5vw,2.05rem);font-weight:500;margin:0 0 1.25rem;color:var(--accent);letter-spacing:.05em}
-    .page p{font-size:clamp(1rem,2.1vw,1.18rem);line-height:1.95;margin:.72rem 0;letter-spacing:.045em;white-space:pre-line}
-    .page .lead{font-size:clamp(1.12rem,2.4vw,1.3rem);color:#7f3d54}
-    .quote{margin:1.35rem 0;padding:1rem 1.1rem;border-left:3px solid #e69eb2;background:rgba(253,224,231,.35);font-size:1.13em;line-height:1.8}
-    .sign{text-align:right;margin-top:1.7rem!important;color:#8f5265}
-    .flourish{text-align:center;font-size:1.6rem;letter-spacing:.35rem;color:#d47c95;margin:1.4rem 0}
-    .final{display:grid;place-content:center;text-align:center;background:linear-gradient(rgba(255,250,243,.9),rgba(255,250,243,.96)),radial-gradient(circle,#f2a9bd 1.5px,transparent 2px);background-size:auto,28px 28px}
-    .final h1{font-size:clamp(2rem,6vw,3.8rem);line-height:1.5;margin-bottom:1rem}
-    .final p{font-size:clamp(1.15rem,3vw,1.5rem);line-height:2}
-    .controls{display:flex;justify-content:center;align-items:center;gap:18px;margin-top:19px}
-    button{font:inherit;font-size:1rem;border:1px solid rgba(148,67,91,.28);background:rgba(255,250,245,.8);color:#86415a;border-radius:999px;padding:10px 20px;cursor:pointer;box-shadow:0 7px 18px rgba(115,56,74,.09);transition:.2s}
-    button:hover:not(:disabled){transform:translateY(-2px);background:#fff}
-    button:focus-visible{outline:3px solid rgba(189,89,120,.35);outline-offset:3px}
-    button:disabled{opacity:.35;cursor:default}
-    .dots{display:flex;gap:8px}.dot{width:8px;height:8px;border-radius:50%;background:#d8aeba;transition:.25s}.dot.active{width:23px;border-radius:8px;background:#bc5f7a}
-    .hint{text-align:center;margin-top:10px;color:#885f6c;font-size:.82rem;opacity:.8}
-    @media(max-width:600px){body{padding:14px 9px}.book{height:79vh;min-height:570px}.page{padding:38px 28px}.page::after{inset:10px}.page p{line-height:1.78}.controls{margin-top:13px}}
-    @media(prefers-reduced-motion:reduce){.page,button,.dot{transition:none}}
-  </style>
-</head>
-<body>
-  <main class="stage" aria-label="给小然的生日贺卡">
-    <section class="book" id="book">
-      <article class="page" aria-label="第一页，给小然" style="z-index:3">
-        <h1>To 亲爱的好朋友小然 🌷</h1>
-        <p class="lead">新的一岁，请继续尽兴。</p>
-        <p>🚗 这一岁，不赶路，去感受路。
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#fff5df"><meta name="description" content="给小然的一封生日手写信"><title>给小然的生日贺卡</title>
+<style>
+:root{--ink:#332d2b;--cream:#fff7e4;--red:#ef5b60;--yellow:#ffd953;--green:#9ec979;--pink:#f7a8b7;--purple:#aa91ce}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:"Kaiti SC","STKaiti","KaiTi","Songti SC",serif;background:#322f2c;min-height:100vh}button{font:inherit}.scene{min-height:100vh;padding:24px 12px 42px;background:radial-gradient(circle at 20% 10%,rgba(255,255,255,.07),transparent 17%),radial-gradient(circle at 80% 80%,rgba(255,255,255,.05),transparent 22%),#322f2c}.paper{position:relative;width:min(96vw,920px);min-height:1120px;margin:auto;padding:44px 34px 58px;overflow:hidden;background-color:var(--cream);background-image:radial-gradient(rgba(83,64,45,.08) .7px,transparent .8px),linear-gradient(98deg,transparent 49.5%,rgba(108,82,58,.025) 50%,transparent 50.5%);background-size:7px 7px,100% 100%;box-shadow:0 24px 70px rgba(0,0,0,.42);transform:rotate(-.15deg)}.paper:after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 70px rgba(115,81,37,.08)}.topline{text-align:center;margin:6px 0 4px;font-size:clamp(1.45rem,4vw,2.35rem);letter-spacing:.12em;font-weight:700;transform:rotate(-1deg)}.subline{text-align:center;margin:0 0 12px;color:#8d3f51;font-size:clamp(1rem,2vw,1.2rem)}.cake{position:relative;width:min(100%,790px);margin:0 auto;padding-top:165px;filter:drop-shadow(0 15px 11px rgba(82,50,36,.13))}.candle{position:absolute;z-index:12;top:57px;left:50%;width:32px;height:112px;transform:translateX(-50%);border-radius:6px 6px 2px 2px;background:repeating-linear-gradient(135deg,#c4abd7 0 11px,#eee2f4 11px 20px);box-shadow:inset -5px 0 rgba(77,52,78,.1)}.wick{position:absolute;top:-11px;left:14px;width:4px;height:15px;border-radius:5px;background:#463a37}.flame-wrap{position:absolute;z-index:14;left:50%;top:-77px;width:70px;height:78px;transform:translateX(-50%);cursor:pointer;filter:drop-shadow(0 0 12px rgba(255,126,43,.55))}.flame{position:absolute;left:18px;bottom:2px;width:36px;height:58px;border-radius:55% 45% 58% 42%/64% 60% 40% 36%;background:radial-gradient(ellipse at 53% 72%,#fff3a0 0 18%,#ffc52c 20% 42%,#f15b3c 46% 72%,#e83c36 74%);transform-origin:50% 92%;animation:flicker .18s ease-in-out infinite alternate}.glow{position:absolute;inset:2px;border-radius:50%;background:#ffb947;opacity:.2;filter:blur(15px);animation:pulse 1.2s infinite alternate}.spark{position:absolute;width:4px;height:4px;border-radius:50%;background:#f4a622;animation:spark 1.8s infinite}.s1{left:4px;top:23px}.s2{right:2px;top:12px;animation-delay:.5s}.s3{right:9px;bottom:4px;animation-delay:1s}.smoke{position:absolute;left:50%;top:-72px;opacity:0;width:8px;height:60px;transform:translateX(-50%);pointer-events:none}.smoke:before,.smoke:after{content:"";position:absolute;width:15px;height:24px;border:4px solid rgba(102,93,88,.48);border-left-color:transparent;border-bottom-color:transparent;border-radius:50%;transform:rotate(-26deg)}.smoke:after{top:23px;left:-7px;transform:scale(.8) rotate(145deg)}.extinguished .flame-wrap{display:none}.extinguished .smoke{animation:smoke 2.8s ease-out forwards}.tier{position:relative;margin:0 auto;padding:22px 34px 26px;line-height:1.75;font-size:clamp(.98rem,2.15vw,1.16rem);letter-spacing:.035em;text-align:left;text-shadow:0 .3px currentColor;clip-path:polygon(1% 5%,5% 2%,10% 4%,16% 1%,23% 3%,31% 0,38% 4%,45% 1%,52% 3%,60% 0,67% 3%,75% 1%,82% 4%,89% 1%,96% 4%,99% 8%,97% 17%,100% 26%,97% 36%,100% 46%,98% 56%,100% 66%,97% 77%,99% 87%,96% 96%,89% 98%,80% 96%,71% 100%,62% 97%,54% 100%,45% 97%,36% 99%,27% 96%,18% 99%,10% 96%,3% 98%,1% 91%,3% 81%,0 72%,3% 62%,1% 51%,3% 42%,0 32%,3% 22%,0 13%)}.tier p{margin:.56rem 0;white-space:pre-line}.tier h2{font-size:1.25em;text-align:center;margin:0 0 .65rem;font-weight:700}.tier-1{z-index:9;width:43%;min-height:108px;background:var(--pink);transform:rotate(.8deg);padding-inline:28px;text-align:center}.tier-2{z-index:8;width:60%;margin-top:-4px;background:var(--green);transform:rotate(-.7deg)}.tier-3{z-index:7;width:75%;margin-top:-3px;background:var(--yellow);transform:rotate(1deg)}.tier-4{z-index:6;width:89%;margin-top:-5px;background:var(--red);transform:rotate(-.6deg)}.tier-5{z-index:5;width:100%;margin-top:-5px;background:var(--purple);transform:rotate(.35deg);padding:29px 45px 38px}.quote{margin:1rem 0;padding:.7rem 1rem;border:2px dashed rgba(74,51,42,.35);background:rgba(255,255,255,.22);transform:rotate(-.4deg)}.sign{text-align:right;font-size:1.08em;font-weight:700}.doodle{position:absolute;z-index:10;font-family:system-ui,sans-serif;font-weight:900;opacity:.8;user-select:none}.d1{left:7%;top:19%;font-size:2rem;transform:rotate(-18deg)}.d2{right:6%;top:25%;font-size:1.7rem}.d3{left:5%;top:57%;font-size:1.8rem}.d4{right:5%;top:67%;font-size:2rem}.d5{left:9%;bottom:5%;font-size:1.4rem}.d6{right:8%;bottom:8%;font-size:1.5rem}.blow-panel{position:relative;z-index:15;text-align:center;margin:28px auto 0;max-width:580px}.blow-btn{border:2px solid var(--ink);border-radius:999px;padding:11px 20px;background:#fff1b8;color:var(--ink);font-weight:700;box-shadow:4px 5px 0 var(--ink);cursor:pointer;transition:.16s}.blow-btn:hover{transform:translate(-1px,-1px);box-shadow:5px 6px 0 var(--ink)}.blow-btn:active{transform:translate(3px,3px);box-shadow:1px 2px 0 var(--ink)}.hint{font-size:.88rem;margin:13px 0 0;color:#685c56}.meter{width:170px;height:8px;margin:12px auto 0;border:1.5px solid #493f3a;border-radius:99px;overflow:hidden;background:#fff}.meter span{display:block;height:100%;width:4%;background:linear-gradient(90deg,#8ec773,#ffd44e,#ef5b60);transition:width .08s}.wish{display:none;font-size:clamp(1.2rem,3vw,1.7rem);font-weight:700;color:#9d304f;margin:16px 0 0;animation:pop .65s ease-out}.extinguished~.blow-panel .wish{display:block}.extinguished~.blow-panel .blow-btn,.extinguished~.blow-panel .meter{display:none}.confetti{position:fixed;z-index:99;top:-20px;width:10px;height:18px;pointer-events:none;animation:fall 3.3s linear forwards}@keyframes flicker{from{transform:rotate(-5deg) scale(.94,1.04)}to{transform:rotate(6deg) scale(1.07,.96)}}@keyframes pulse{to{transform:scale(1.35);opacity:.06}}@keyframes spark{0%,100%{opacity:0;transform:translateY(7px)}45%{opacity:1}70%{opacity:0;transform:translateY(-10px)}}@keyframes smoke{0%{opacity:0;transform:translate(-50%,12px) scale(.7)}18%{opacity:.85}100%{opacity:0;transform:translate(-38%,-60px) scale(1.6)}}@keyframes pop{0%{opacity:0;transform:scale(.65) rotate(-3deg)}70%{transform:scale(1.08) rotate(1deg)}100%{opacity:1;transform:scale(1)}}@keyframes fall{to{transform:translate(var(--drift),110vh) rotate(760deg)}}@media(max-width:650px){.scene{padding:0}.paper{width:100%;min-height:100vh;padding:28px 6px 42px;transform:none;box-shadow:none}.cake{padding-top:155px}.tier{font-size:.88rem;line-height:1.65;padding:18px 18px 22px}.tier-1{width:58%;padding-inline:16px}.tier-2{width:72%}.tier-3{width:84%}.tier-4{width:94%}.tier-5{width:100%;padding:24px 22px 31px}.doodle{opacity:.45}.d1,.d3,.d5{left:2%}.d2,.d4,.d6{right:2%}.topline{padding-inline:10px}.blow-panel{padding:0 14px}}@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style></head><body><main class="scene"><section class="paper" aria-label="给小然的生日蛋糕贺卡"><div class="topline">亲爱的朋友，要天天开心呀～</div><div class="subline">把我们的祝福，一层一层做成蛋糕 🎂</div><span class="doodle d1">✦</span><span class="doodle d2">♡</span><span class="doodle d3">〰</span><span class="doodle d4">✧</span><span class="doodle d5">✿</span><span class="doodle d6">☆</span><div class="cake" id="cake"><div class="candle" aria-label="生日蜡烛"><i class="wick"></i><button class="flame-wrap" id="flame" aria-label="点击吹灭蜡烛" title="点击也可以吹灭蜡烛" style="border:0;background:none;padding:0"><i class="glow"></i><i class="flame"></i><i class="spark s1"></i><i class="spark s2"></i><i class="spark s3"></i></button><i class="smoke"></i></div>
+<article class="tier tier-1"><h2>To 亲爱的好朋友小然 🌷</h2><p>新的一岁，请继续尽兴。</p></article>
+<article class="tier tier-2"><p>🚗 这一岁，不赶路，去感受路。
 🎈 祝你拥有很多很多，不需要理由的快乐。
-🕯️ 愿你永远有吹蜡烛时，相信愿望会实现的认真。
-🎀 生日不是提醒你又长大了，是提醒你：你来到这个世界，值得庆祝。
-🌼 愿新的一岁，比去年更自由，比昨天更喜欢自己。</p>
-        <div class="quote">如果只能留下一句，<br>我还是最喜欢：<br>「新的一岁，请继续尽兴。」</div>
-        <p>去吃喜欢的蛋糕，
+🕯️ 愿你永远有吹蜡烛时，相信愿望会实现的认真。</p></article>
+<article class="tier tier-3"><p>🎀 生日不是提醒你又长大了，是提醒你：你来到这个世界，值得庆祝。
+🌼 愿新的一岁，比去年更自由，比昨天更喜欢自己。</p><div class="quote">如果只能留下一句，<br>我还是最喜欢：<br>「新的一岁，请继续尽兴。」</div></article>
+<article class="tier tier-4"><p>去吃喜欢的蛋糕，
 去买没有理由也想买的花，
 去想去很久的地方，
 大笑的时候不用管漂不漂亮，
-偶尔绕一点路，也没有关系。</p>
-        <p>希望我们不是又匆匆忙忙地长大一岁，
-而是真的去喜欢、感受、庆祝这一岁。</p>
-        <p class="sign">生日快乐呀。🎂</p>
-      </article>
-      <article class="page" aria-label="第二页，给王女士" style="z-index:2">
-        <h1>To 亲爱的王女士 🌹</h1>
-        <p>今天是小然的生日，也想把一份祝福送给您。</p>
-        <p>谢谢您把这样温暖、真诚又可爱的她带到这个世界，也谢谢您用许多年的爱与耐心，陪她慢慢长成如今闪闪发光的模样。</p>
-        <p>作为她的朋友，我很幸运能分享她的快乐，也很安心地知道，无论她走多远，身后始终有您留着一盏温柔的灯。</p>
-        <p>愿您今后的日子少些操心，多些自在；有人惦念，有人陪伴，所盼皆有回应。也愿岁月格外偏爱您，让健康与好心情常伴左右。</p>
-        <p>祝您和家人平安顺遂，生活常有小惊喜。我们也会陪着小然，一起认真生活，一起把每一个普通的日子过得热气腾腾。</p>
-        <div class="flourish">🌷 · 🌷 · 🌷</div>
-        <p class="sign">也祝王女士，每一天都幸福快乐。</p>
-      </article>
-      <article class="page final" aria-label="第三页，一起奔赴未来" style="z-index:1">
-        <div>
-          <div class="flourish">✦ 🌼 ✦</div>
-          <h1>大家一起<br>奔赴美好的未来</h1>
-          <p>愿我们一路有花、有光、有彼此，<br>带着热爱，奔向每一个明亮的明天。</p>
-          <p>生日快乐，小然。🎂</p>
-        </div>
-      </article>
-    </section>
-    <nav class="controls" aria-label="贺卡翻页控制">
-      <button id="prev" type="button" aria-label="翻到上一页">← 上一页</button>
-      <div class="dots" aria-label="页码"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
-      <button id="next" type="button" aria-label="翻到下一页">下一页 →</button>
-    </nav>
-    <div class="hint">也可以左右滑动或使用键盘方向键翻页</div>
-  </main>
-  <script>
-    const pages=[...document.querySelectorAll('.page')],dots=[...document.querySelectorAll('.dot')],prev=document.querySelector('#prev'),next=document.querySelector('#next');let current=0,startX=0;
-    function render(){pages.forEach((p,i)=>{p.classList.toggle('flipped',i<current);p.style.zIndex=i<current?i+1:pages.length-i});dots.forEach((d,i)=>d.classList.toggle('active',i===current));prev.disabled=current===0;next.disabled=current===pages.length-1;next.textContent=current===pages.length-1?'已经读完 ♡':'下一页 →'}
-    function go(n){current=Math.max(0,Math.min(pages.length-1,n));render()}
-    prev.addEventListener('click',()=>go(current-1));next.addEventListener('click',()=>go(current+1));
-    addEventListener('keydown',e=>{if(e.key==='ArrowLeft')go(current-1);if(e.key==='ArrowRight')go(current+1)});
-    document.querySelector('#book').addEventListener('touchstart',e=>startX=e.changedTouches[0].clientX,{passive:true});
-    document.querySelector('#book').addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-startX;if(Math.abs(dx)>50)go(current+(dx<0?1:-1))},{passive:true});render();
-  </script>
-</body>
-</html>
+偶尔绕一点路，也没有关系。</p><p>希望我们不是又匆匆忙忙地长大一岁，
+而是真的去喜欢、感受、庆祝这一岁。</p><p class="sign">生日快乐呀。🎂</p></article>
+<article class="tier tier-5"><h2>To 亲爱的王女士 🌹</h2><p>今天是小然的生日，也想把一份祝福送给您。</p><p>谢谢您把这样温暖、真诚又可爱的她带到这个世界，也谢谢您用许多年的爱与耐心，陪她慢慢长成如今闪闪发光的模样。</p><p>作为她的朋友，我很幸运能分享她的快乐，也很安心地知道，无论她走多远，身后始终有您留着一盏温柔的灯。</p><p>愿您今后的日子少些操心，多些自在；有人惦念，有人陪伴，所盼皆有回应。也愿岁月格外偏爱您，让健康与好心情常伴左右。</p><p>祝您和家人平安顺遂，生活常有小惊喜。我们也会陪着小然，一起认真生活，一起把每一个普通的日子过得热气腾腾。</p><p class="sign">也祝王女士，每一天都幸福快乐。</p><div class="quote" style="text-align:center"><b>大家一起奔赴美好的未来</b><br>愿我们一路有花、有光、有彼此，<br>带着热爱，奔向每一个明亮的明天。<br>生日快乐，小然。🎂</div></article></div>
+<div class="blow-panel"><button class="blow-btn" id="blowBtn">🎙️ 打开麦克风，吹灭蜡烛</button><div class="meter" aria-hidden="true"><span id="meterFill"></span></div><p class="hint" id="hint">也可以直接轻点烛火</p><p class="wish">愿望已经收到啦！新的一岁，请继续尽兴 ✨</p></div></section></main>
+<script>const cake=document.querySelector('#cake'),flame=document.querySelector('#flame'),blowBtn=document.querySelector('#blowBtn'),hint=document.querySelector('#hint'),fill=document.querySelector('#meterFill');let blown=false,ctx,stream,raf,loudFrames=0;function confetti(){const colors=['#ef5962','#ffd953','#9ec979','#a990ce','#f7a8b7'];for(let i=0;i<70;i++){const c=document.createElement('i');c.className='confetti';c.style.left=Math.random()*100+'vw';c.style.background=colors[i%colors.length];c.style.setProperty('--drift',(Math.random()*220-110)+'px');c.style.animationDelay=Math.random()*.75+'s';c.style.borderRadius=i%3?'2px':'50%';document.body.appendChild(c);setTimeout(()=>c.remove(),4300)}}function extinguish(){if(blown)return;blown=true;cake.classList.add('extinguished');hint.textContent='愿望已经悄悄飞向未来啦';confetti();if(stream)stream.getTracks().forEach(t=>t.stop());if(ctx)ctx.close();cancelAnimationFrame(raf)}flame.addEventListener('click',extinguish);async function listen(){if(blown)return;try{stream=await navigator.mediaDevices.getUserMedia({audio:true});ctx=new(window.AudioContext||window.webkitAudioContext)();const source=ctx.createMediaStreamSource(stream),analyser=ctx.createAnalyser();analyser.fftSize=512;source.connect(analyser);const data=new Uint8Array(analyser.fftSize);blowBtn.textContent='对着手机吹气吧…';hint.textContent='气流持续约半秒，烛火就会熄灭';function detect(){analyser.getByteTimeDomainData(data);let sum=0;for(const v of data){const n=(v-128)/128;sum+=n*n}const rms=Math.sqrt(sum/data.length);fill.style.width=Math.min(100,rms*540)+'%';loudFrames=rms>.09?loudFrames+1:Math.max(0,loudFrames-2);if(loudFrames>12){extinguish();return}raf=requestAnimationFrame(detect)}detect()}catch(e){blowBtn.textContent='麦克风未开启，点一下烛火吧';hint.textContent='Safari 中也可以直接轻点上方烛火吹灭'}}blowBtn.addEventListener('click',listen);</script></body></html>
